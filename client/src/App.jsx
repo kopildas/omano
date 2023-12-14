@@ -1,35 +1,100 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home/Home";
+// import "../src/components/home/Reservation/Calender.css";
+// import Home from "./pages/Home";
+// import Foods from "./pages/Foods"
+// import Profile from "./pages/Profile";
+// import Signin from "./pages/Signin";
+// import SignUp from "./pages/SignUp";
+// import PrivateRoute from "./components/PrivateRoute";
+// import ForgotPassword from "./pages/ForgotPassword";
+// import Header from "./components/Header";
+// import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import Admin from "./pages/Admin/Admin";
+// import FoodItems from "./pages/Admin/FoodItems";
+// import Reviews from "./pages/Admin/Reviews";
+// import Users from "./pages/Admin/Users";
+// import Wallet from "./pages/Admin/Wallet";
+// import PrivateAdminRoute from "./components/PrivateAdminRoute";
+// import Sidebar from "./components/admin_comp/Sidebar";
+// import { useStateValue } from "./context/StateProvider";
+// import { getAllFoodItems } from "./utils/firebaseFunctions";
+// import { actionType } from "./context/reducer";
+// import SingleFood from "./pages/SingleFood";
+// // import { getAuth } from "firebase/auth";
+// import { validateUserJWTTOken } from "./api";
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // const auth = getAuth();
+  // const [{foodItem},dispatch] = useStateValue();
+
+  // const fetchData = async () => {
+  //   await getAllFoodItems().then((data)=>{
+  //     dispatch({
+  //       type: actionType.SET_FOOD_ITEMS,
+  //     foodItem:data,
+  //     })
+  //   })
+  // }
+
+  // useEffect(() => {
+  //   fetchData();
+  //   auth.onAuthStateChanged((cred) => {
+  //     if (cred) {
+  //       cred.getIdToken().then((token) => {
+  //         validateUserJWTTOken(token).then((data) => {
+  //           // console.log(data);
+  //           dispatch({
+  //             type: actionType.SET_USER,
+  //             user: data,
+  //           });
+  //         });
+  //       });
+  //     }
+  //   });
+  // }, []); // Close the useEffect properly
+  
+
+
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        {/* <Route path="/admin/*" element={<Sidebar />} /> */}
+        {/* <Header /> */}
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+         
+        </Routes>
+      </Router>
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
