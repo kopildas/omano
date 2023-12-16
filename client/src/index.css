@@ -12,6 +12,19 @@ html,body {
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+.hero-font-2 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.hero-font {
+  font-family: 'Cardo', serif;
+}
+
+
 .popup {
   position: fixed;
   z-index: 12;
