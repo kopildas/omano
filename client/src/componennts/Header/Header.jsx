@@ -163,7 +163,7 @@ export default function Header({ children }) {
         <div className="hidden md:flex justify-between items-center px-3 max-w-6xl mx-auto">
           <div>
             <img
-              src="./logo.png"
+              src="https://i.ibb.co/TP8bczH/logo-removebg-preview.png"
               alt="logo"
               className="h-16 cursor-pointer"
               onClick={() => {

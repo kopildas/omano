@@ -7,8 +7,8 @@
   import React, { useState } from "react";
   import Select from "react-tailwindcss-select";
   import { toast } from "react-toastify";
-//   import Spinner from "../../Spinner";
-  import ReactCalender from "react-calendar";
+  import Calendar from 'react-calendar';
+  import 'react-calendar/dist/Calendar.css';
 import Spinner from "../../Spinner";
   
   export default function Calender({
@@ -85,15 +85,15 @@ import Spinner from "../../Spinner";
         onClick={handleOnChange}
         className="fixed z-50 inset-0 flex items-center justify-center bg-opacity-5 backdrop-blur-sm"
       >
-        <div className=" p-2 w-80 md:min-w-[500px] bg-slate-300 rounded-lg md:">
-          <h1 className="text-xl font-semibold text-center text-gray-700 md-5">Choose a date
+        <div className=" p-2 w-80 border md:min-w-[500px] bg-[#372c424f] rounded-lg md:">
+          <h1 className="text-4xl font-semibold text-center text-gray-100 md-5">Choose a date
             {/* Are you sure to Delete Item ({data.item_name})? */}
           </h1>
   
-          <div className="flex items-end justify-end m-3 text-center">
-            <ReactCalender
+          <div className="flex items-center justify-center m-3 text-center bg-red-">
+            <Calendar
               minDate={new Date()}
-              className="REACT-CALENDER p-2 bg-slate-200"
+              className="REACT-CALENDER p-2 bg-slate-200 rounded-lg"
               view="month"
               //   onClick={handleOnChange}
               onClickDay={handleCalendarClick}

@@ -23,6 +23,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useStateValue } from "./context/StateProvider";
 import { actionType } from "./context/reducer";
+import Footer from "./componennts/Footer/Footer";
 // import Admin from "./pages/Admin/Admin";
 // import FoodItems from "./pages/Admin/FoodItems";
 // import Reviews from "./pages/Admin/Reviews";
@@ -103,8 +104,8 @@ console.log(foodItem)
 
         <Routes>
           <Route path="/" element={<Home />} />
-         
         </Routes>
+         <Footer/>
       </Router>
 
       <ToastContainer
