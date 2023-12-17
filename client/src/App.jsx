@@ -24,6 +24,8 @@ import { useEffect, useState } from "react";
 import { useStateValue } from "./context/StateProvider";
 import { actionType } from "./context/reducer";
 import Footer from "./componennts/Footer/Footer";
+import Login from "./pages/Auth/Login";
+import Sign_up from "./pages/Auth/Sign_up";
 // import Admin from "./pages/Admin/Admin";
 // import FoodItems from "./pages/Admin/FoodItems";
 // import Reviews from "./pages/Admin/Reviews";
@@ -104,6 +106,8 @@ console.log(foodItem)
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/sign-up" element={<Sign_up />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
          <Footer/>
       </Router>

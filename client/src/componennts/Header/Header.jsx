@@ -232,6 +232,15 @@ export default function Header({ children }) {
                 <Link to="/sign-up">Sign up</Link>
               </li>
               ) : null}
+              {!user ? (
+                <li
+                className={`cursor-pointer py-3 hover:text-red-400 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
+                  activeHeader("/login") ? "text-red-500 border-t-4 border-t-red-500" : ""
+                }`}
+              >
+                <Link to="/login">Login</Link>
+              </li>
+              ) : null}
 
               <li
                 className={`cursor-pointer py-3 hover:text-red-400 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${

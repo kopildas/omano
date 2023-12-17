@@ -141,7 +141,7 @@ export default function Reservation() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 mt-4">
+              {/* <div className="grid grid-cols-1 mt-4">
                 <textarea
                   type="text"
                   className="p-2 border border-gray-700 rounded md-5 "
@@ -151,7 +151,7 @@ export default function Reservation() {
                   //   onChange={onChange}
                   required
                 />
-              </div>
+              </div> */}
             </div>
           </form>
         </div>
