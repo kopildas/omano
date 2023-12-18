@@ -14,6 +14,7 @@ import {
   FaUserAlt,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { actionType } from "../../context/reducer";
 
 
 
@@ -150,7 +151,12 @@ export default function Header({ children }) {
     },
   ];
 
-
+  function cartShowing() {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
+  }
 
 
 
@@ -211,7 +217,7 @@ export default function Header({ children }) {
 
               <div
                 className="relative flex items-center justify-center gap-9"
-                // onClick={cartShowing}
+                onClick={cartShowing}
               >
                 <MdShoppingBasket className="text-2xl text-gray-500 cursor-pointer" />
                 {cartItems && cartItems.length > 0 && (

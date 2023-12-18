@@ -28,6 +28,7 @@ import Login from "./pages/Auth/Login";
 import Sign_up from "./pages/Auth/Sign_up";
 import SingleItem from "./pages/Shop/SingleItem";
 import Foods from "./pages/Shop/Foods";
+import CartContainer from "./componennts/Home/Cart/CartContainer";
 // import Admin from "./pages/Admin/Admin";
 // import FoodItems from "./pages/Admin/FoodItems";
 // import Reviews from "./pages/Admin/Reviews";
@@ -83,6 +84,7 @@ console.log(foodItem)
     }
   }
 
+  console.log(cartShow)
 
   useEffect(() => {
 
@@ -105,7 +107,7 @@ console.log(foodItem)
       <Router>
         {/* <Route path="/admin/*" element={<Sidebar />} /> */}
         <Header />
-
+        {cartShow && <CartContainer />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/foods" element={<Foods />} />
