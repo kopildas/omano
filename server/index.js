@@ -20,7 +20,7 @@ const app = express()
 
 //cors settings
 
-const allowedOrigins = ['https://omano-backend.onrender.com','http://localhost:3000','http://localhost:5173'];
+const allowedOrigins = ['https://omano-backend.onrender.com','http://localhost:3000','http://localhost:5173','https://omano.vercel.app'];
 
 const corsOptions = {
   origin: function (origin, callback) {
