@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 // import Calender from "./Reservation/Calender";
 import { Combobox } from "@headlessui/react";
 import Calender from "./Calender";
-import TablePop from "./TablePop";
+// import TablePop from "./TablePop";
+import Booking_table from "./Booking_table";
 // import TablePop from "./Reservation/TablePop";
 
 export default function Reservation() {
@@ -15,16 +16,17 @@ export default function Reservation() {
     dateTime: null,
   });
   const [options, setOptions] = useState([]); // Initialize options as a state variable
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedGuest, setSelectedGuest] = useState(null);
   
   console.log(selectDate)
-  console.log(selectedTime)
+  console.log(selectedGuest)
 
   const handleDateSelect = (date) => {
     setSelectDate((prev) => ({ ...prev, justdate: date }));
   };
 
   const handleOnClose = () => {
+    console.log("dfjsk")
     setShowPop(false);
     setTablePop(false);
   };
@@ -48,7 +50,7 @@ export default function Reservation() {
 
       if (
         (tablePop && options === null) ||
-        selectedTime === null ||
+        selectedGuest === null ||
         selectDate.justdate === null
       ) {
         setTablePop(false);
@@ -56,10 +58,17 @@ export default function Reservation() {
     }
   }, [selectDate.justdate]);
 
+  const [geust,setGeust] = useState([
+  {value: '1'},
+    {value: '2'},
+    {value: '3'},
+    {value: '4'}
+  ])
+console.log(geust[0])
   useEffect(() => {
     if (
       (tablePop && options === null) ||
-      selectedTime === null ||
+      selectedGuest === null ||
       selectDate.justdate === null
     ) {
       setTablePop(false);
@@ -98,24 +107,28 @@ export default function Reservation() {
                 />
 
               
-                <select
-                  value={selectedTime}
-                  placeholder="select time" // Set the selected value, you should have a state variable for this
-                  onChange={(e) => setSelectedTime(e.target.value)} // Handle the change event
-                  className="p-2 border border-gray-700 rounded md-5"
-                  required
-                >
-                  {options &&
-                    options.map((time) => (
-                      <option
-                        key={time.value}
-                        value={time.value}
-                        className="flex items-center text-gray-700 gap-3 max-h-40 overflow-y-auto"
-                      >
-                        {time.label}
-                      </option>
-                    ))}
-                </select>
+<select
+  value={selectedGuest}
+  onChange={(e) => setSelectedGuest(e.target.value)}
+  className="p-2 border border-gray-700 rounded md-5"
+  required
+> Select guest number
+  <option value="" disabled>
+    Select guest number
+  </option>
+  {geust &&
+    geust.map((time) => (
+      <option
+        key={time.value}
+        value={time.value}
+        className="flex items-center text-gray-700 gap-3 max-h-40 overflow-y-auto"
+      >
+        {time.value}
+      </option>
+    ))}
+</select>
+
+
 
                 <input
                   type="text"
@@ -126,19 +139,19 @@ export default function Reservation() {
                   onClick={() => setTablePop(true)}
                   required
                 />
-                {/* {(selectDate && selectedTime && options) ?? (<TablePop
+                {/* {(selectDate && selectedGuest && options) ?? (<TablePop
                 onClose={handleOnClose}
                 visible={tablePop}
                 onDateSelect={handleDateSelect}
               />) } */}
-                <TablePop
+                {(selectDate.justdate && selectedGuest && options) ? (<Booking_table
                   onClose={handleOnClose}
                   visible={tablePop}
                   onDateSelect={handleDateSelect}
                   selectDate={selectDate}
-                  selectedTime={selectedTime}
+                  selectedGuest={selectedGuest}
                   timeRange={options}
-                />
+                />) : null}
               </div>
 
               {/* <div className="grid grid-cols-1 mt-4">

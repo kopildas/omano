@@ -14,6 +14,10 @@ const ReservationSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide a table name'],
       },
+      guest : {
+        type: Number,
+        default: 1,
+      },
       time: {
         type: String,
         required: [true, 'Please provide a time'],
@@ -22,7 +26,7 @@ const ReservationSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide a userid'],
       },
-      user: {
+      user_name: {
         type: String,
         required: [true, 'Please provide a user'],
       },

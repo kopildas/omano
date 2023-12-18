@@ -41,6 +41,7 @@ app.use(cors(corsOptions));
 //routers
 import authRouter from './routes/authRoutes.js'
 import productsRouter from './routes/productsRoutes.js'
+import reservationRouter from './routes/reservationRoutes.js'
 
 
 
@@ -56,6 +57,7 @@ app.get('/', async(req,res) => {
 
 app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/products',productsRouter)
+app.use('/api/v1/reservation',reservationRouter)
 
 
 app.use(notFoundMiddleware)
