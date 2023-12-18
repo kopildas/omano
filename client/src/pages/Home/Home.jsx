@@ -5,6 +5,7 @@ import Reservation from '../../componennts/Home/Resevation/Resevation'
 import About_us from '../../componennts/Home/About us/About_us'
 
 export default function Home() {
+  console.log("link "+import.meta.env.VITE_LINK);
   return (
     <>
     <Hero/>
