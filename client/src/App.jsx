@@ -26,6 +26,8 @@ import { actionType } from "./context/reducer";
 import Footer from "./componennts/Footer/Footer";
 import Login from "./pages/Auth/Login";
 import Sign_up from "./pages/Auth/Sign_up";
+import SingleItem from "./pages/Shop/SingleItem";
+import Foods from "./pages/Shop/Foods";
 // import Admin from "./pages/Admin/Admin";
 // import FoodItems from "./pages/Admin/FoodItems";
 // import Reviews from "./pages/Admin/Reviews";
@@ -106,6 +108,8 @@ console.log(foodItem)
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/foods" element={<Foods />} />
+          <Route path="/singlefood/:id" element={<SingleItem />} />
           <Route path="/sign-up" element={<Sign_up />} />
           <Route path="/login" element={<Login />} />
         </Routes>

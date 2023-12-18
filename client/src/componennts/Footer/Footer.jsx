@@ -1,8 +1,28 @@
 import React from 'react'
 import { FaFacebookF,FaInstagram,FaYoutube } from "react-icons/fa6";
 export default function Footer() {
+
+  const hideFooterRoutes = [
+    "/admin/dashboard",
+    "/admin/products",
+    "/admin/products/addproducts",
+    "/admin/products/addproducts/edit",
+    "/admin/users",
+    "/admin/orders",
+    "/admin/review",
+    "/foods",
+  ];
+
+  // Check if the current route matches any of the paths to hide the footer
+  const shouldHideFooter = hideFooterRoutes.some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+
   return (
-    <div className='h-auto pl-32 pr-32 pt-32 mt-20 hero-font uppercase text-stone-800'>
+    <>
+    {!shouldHideFooter && (
+      <div className='h-auto pl-32 pr-32 pt-32 mt-20 hero-font uppercase text-stone-800'>
       <div className='w-full border-b-2 border-gray-950'></div>
       <div className='w-full flex flex-col items-center justify-center'>
         <p className='mt-10 w-96'><img src="https://i.ibb.co/TP8bczH/logo-removebg-preview.png" alt="logo-removebg-preview" border="0"/></p>
@@ -21,5 +41,7 @@ export default function Footer() {
         </div>
       </div>
     </div>
+    )}
+    </>
   )
 }
