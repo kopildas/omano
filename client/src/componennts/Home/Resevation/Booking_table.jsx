@@ -41,7 +41,7 @@ export default function Booking_table({
           setDatabaseReserv(response.data.reservation);
       }
 
-console.log(databaseReserv)
+
       useEffect(() => {
     getAllReservation();
         //   getAllReservationData().then(newdata);
@@ -80,7 +80,7 @@ if (selectDate.justdate != null && databaseReserv.length>0) {
 
 
       const bookingTable = (tableId, tableName) => {
-        if (isTableAvailable(tableId)) {
+        if (isTableAvailable(tableId) && user) {
           if (prevTableId !== null && isTableAvailable(prevTableId)) {
             const prevTableElement = document.getElementById(prevTableId);
             prevTableElement.classList.remove("table-selected");
@@ -106,19 +106,22 @@ if (selectDate.justdate != null && databaseReserv.length>0) {
       };
 const {date , time , table , tableName ,guest ,userid ,user_name , userEmail} = resvData
 
-      console.log(resvData)
-      console.log(selectedGuest)
-console.log(user)
-console.log(selectDate)
+      
 
 
 
       async function handleConfiremClick ()  {
-        if(!date || !time || !table || !tableName || !guest || !userid || !user_name || !userEmail)
+        if(!user){
+          toast.error("You have to logged in first..")
+          onClose();
+        }
+        else if(!date || !time || !table || !tableName || !guest || !userid || !user_name || !userEmail)
         {
             toast.error("please provide all value")
+            onClose();
         }
-        try {
+        else {
+          try {
             const response = await axios.post(
               `${import.meta.env.VITE_LINK}/reservation`,
               resvData
@@ -167,6 +170,7 @@ console.log(selectDate)
             console.log(err);
             onClose();
           }
+        }
     
         // onClose();
       }
