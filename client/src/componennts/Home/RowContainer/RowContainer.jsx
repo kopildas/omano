@@ -18,7 +18,7 @@ export default function RowContainer({
   const [updatedItem, setUpdatedItem] = useState([]);
   const [{ cartItems }, dispatch] = useStateValue();
   const navigate = useNavigate();
-console.log(data);
+
 
   const cartDispatch = () => {
     // localStorage.setItem("cartItems", JSON.string(updatedItem));
@@ -111,7 +111,7 @@ console.log(data);
           flag
             ? "overflow-x-scroll scrollbar-none scroll-auto"
             : "overflow-x-hidden flex flex-wrap justify-center"
-        } ${gridORlist ? null : "flex-col p-5"}`}
+        } ${gridORlist ? null : "flex-col p-5 w-full"}`}
       >
         {data &&
           data.map((item) => (
@@ -123,14 +123,14 @@ console.log(data);
                   ? "w-1/2  md:w-1/4 lg:w-1/4 xl:w-1/5 "
                   : "flex-col w-full"
               } ${
-                flag ? "min-w-[320px]" : "min-w-[220px]"
+                flag ? "min-w-[820px]" : "min-w-[220px]"
               } h-auto bg-gray-10 border  bl rounded-lg p-4 my-6 backdrop-blur-lg hover:drop-shadow-2xl`}
             >
               {/* <NavLink to={`/singlefood/${item?.id}`}> */}
               <div className={`${
-                flag ? "flex flex-row" : "flex flex-col"
+                flag ? "flex flex-row items-start justify-around gap-5" : "flex flex-col"
               }`}>
-              <div className="flex items-center justify-center w-full">
+              <div className={`flex items-center justify-center bg-red-00 w-ful`}>
                 <motion.img
                   whileHover={{ scale: 1.1 }}
                   transition={{spring}}
@@ -141,12 +141,12 @@ console.log(data);
                   }  -mt-7 drop-shadow-2xl`}
                 />
                 <div className='w-1/2  bg-red-00 flex items-center justify-end absolute z-10 -mt-28 ml-14 '>
-              <div className='w-36 h-36 rounded-blob-1 bg-blob-color3 rotate-45 ml-5 '>
+              <div className={`w-36 h-36 rounded-blob-1 bg-blob-color3 rotate-45 ${flag ? "mr-20" : "ml-5"}`}>
 
               </div>
             </div>
                 <div className='w-1/2  bg-red-30 flex items- justify- absolute z-10 mt-[6rem]'>
-              <div className='w-14 h-14 rounded-blob-1 bg-blob-color4 rotate-45 -ml-2 '>
+              <div className={`w-14 h-14 rounded-blob-1 bg-blob-color4 rotate-45 ${flag ? "ml-[5.5rem]" : "-ml-2"}`}>
 
               </div>
             </div>

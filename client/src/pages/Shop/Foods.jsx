@@ -317,7 +317,7 @@ export default function Foods() {
                 ) : (
                   <RowContainer
                     gridORlist={false}
-                    flag={false}
+                    flag={true}
                     onDataLengthChange={handleDataLengthChange}
                     data={
                       foods
