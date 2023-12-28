@@ -183,7 +183,7 @@ export default function Foods() {
                       <select
                         name="sort"
                         id="sort"
-                        className="p-2 mt-3 rounded-xl w-52 font-medium text-gray-500 cursor-pointer"
+                        className="p-2 mt-3 rounded-xl w-52 font-medium text-gray-500 cursor-pointer border-2"
                         onClick={sorting}
                       >
                         <option
@@ -213,13 +213,13 @@ export default function Foods() {
                     <BsGrid
                       className={`${
                         view ? "text-red-600" : null
-                      } text-2xl mt-3`}
+                      } text-2xl mt-3 cursor-pointer`}
                       onClick={() => setView(true)}
                     />
                     <BsList
                       className={`${
                         view ? null : "text-red-600"
-                      } text-2xl mt-3`}
+                      } text-2xl mt-3 cursor-pointer`}
                       onClick={() => setView(false)}
                     />
                   </div>
@@ -244,11 +244,11 @@ export default function Foods() {
                         <div
                           className={`group ${
                             filter === category.value
-                              ? "bg-red-500"
-                              : "bg-slate-300"
-                          } w-48 h-6 cursor-pointer rounded-lg drop-shadow-xl flex flex-row md:flex-col gap-3 items-center justify-center duration-150 transition-all ease-in-out mt-6`}
+                              ? "bg-orange-300"
+                              : "bg-slate-100"
+                          } w-48 h-8 hover:bg-orange-100 cursor-pointer rounded-lg drop-shadow-xl flex flex-row md:flex-col gap-3 items-center justify-center duration-200 transition-all ease-in-out mt-6`}
                         >
-                          <p className="">
+                          <p className="text-md font-semibold">
                             {bar} {category.value}
                           </p>
                         </div>
@@ -285,7 +285,7 @@ export default function Foods() {
               </div>
               <div className="mt-8 p-5 rounded-md bg-slate-100 hidden md:block">
                 <p className="text-lg font-bold">Price filter</p>
-                <p className="text-sm font-semibold">${price}</p>
+                <p className="text-md font-semibold"><span className="text-orange-00 text-lg">$</span>{price}</p>
 
                 <input
                   type="range"
@@ -299,9 +299,9 @@ export default function Foods() {
                 />
               </div>
 
-              <div className="mt-6 hidden md:flex">
+              {/* <div className="mt-6 hidden md:flex">
                 <p>popular tags</p>
-              </div>
+              </div> */}
             </div>
             <div className=" hidden md:flex h-auto ">
               <div className="flex w-full h-auto ">
