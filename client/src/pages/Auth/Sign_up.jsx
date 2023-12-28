@@ -104,6 +104,7 @@ export default function Sign_up({
 
   useEffect(() => {
     if (user) {
+      setIsLoader(true)
       setTimeout(() => {
         // onClosing_Signup_pop();
         setIsLoader(false);
@@ -121,23 +122,23 @@ export default function Sign_up({
     <div
       id="cont"
       onClick={handleOnChange}
-      className="fixed z-30 mt-28 inset-0 flex items-center justify-center k bg-opacity-5 filter backdrop-blur-sm"
+      className="fixed z-30  inset-0 flex items-center justify-center k bg-opacity-5 filter backdrop-blur-sm"
     >
       {isLoader ? (
         <Spinner />
       ) : (
-       <div className="flex w-full">
-        <div className="w-1/2">
+       <div className="flex w-full mt-28">
+        <div className="w-1/2 h-screen object-cover hidden lg:flex items-center justify-center bg-red-200">
         <img src="https://i.ibb.co/qNnmmpT/a-piece-of-pizza-with-a-3d-cute-smiling-face-stylized-caricature-mortified-at-its-existence-hyper-71.png" alt="a-piece-of-pizza-with-a-3d-cute-smiling-face-stylized-caricature-mortified-at-its-existence-hyper-71" border="0" className=" h-full object-cover rounded-xl"/>
         </div>
         <div 
-          className="w-1/2 flex mt-16 mb-16 filter backdrop-blur-sm justify-center bg-cover bg-center bg-no-repeat bg-fixed text-gray-100 rounded-xl text-black"
+          className="lg:w-1/2 flex mt-16 mb-16 filter backdrop-blur-sm justify-center bg-cover bg-center bg-no-repeat bg-fixed text-gray-100 rounded-xl"
           style={{
             backgroundColor: "rgba(248, 248, 248, 0.839)",
           }}
           // style={{ backgroundImage: `url("./pasta.jpg")` }}
         >
-          <div className="w-full max-w-sm rounded-lg p-6 grid">
+          <div className="w-full max-w-sm rounded-lg p-6 grid text-gray-600">
             <h2 className="text-2xl text-center font-semibold mb-2">
               Register
             </h2>
@@ -223,14 +224,14 @@ export default function Sign_up({
                 </label>
               </div>
 
-              <div className="flex  flex-col justify-between mb-4">
+              <div className="flex  flex-col items-center mb-4">
                 <p>
                   Already have an account?
                   <span
                     //   to="/login"
                     onClick={() => {
-                      // navigate("/signin");
-                      Login_pop();
+                      navigate("/login");
+                      // Login_pop();
                     }}
                     className="text-blue-500 hover:text-blue-700 transit ion duration-200 ease-in-out ml-1 cursor-pointer"
                   >

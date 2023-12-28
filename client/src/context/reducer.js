@@ -6,21 +6,34 @@ export const actionType = {
   SET_FOOD_ITEMS: "SET_FOOD_ITEMS",
   SET_CART_SHOW: "SET_CART_SHOW",
   SET_CART_ITEMS: "SET_CART_ITEMS",
+  LOGIN_USER_SUCCESS: "LOGIN_USER_SUCCESS",
+  REGISTER_USER_SUCCESS: "REGISTER_USER_SUCCESS",
 };
 
 const reducer = (state, action) => {
-
   switch (action.type) {
     case actionType.SET_USER:
       return {
         ...state,
         user: action.user,
       };
-      case actionType.DEL_USER:
-        return {
-          ...state,
-          user: null,
-        };
+    case actionType.DEL_USER:
+      return {
+        ...state,
+        user: null,
+      };
+    case actionType.LOGIN_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.user,
+        token: action.token,
+      };
+    case actionType.REGISTER_USER_SUCCESS:
+      return {
+        ...state,
+        user: action.user,
+        token: action.token,
+      };
     case actionType.SET_FOOD_ITEMS:
       return {
         ...state,

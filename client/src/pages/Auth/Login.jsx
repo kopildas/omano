@@ -51,10 +51,9 @@ export default function Login() {
             `${import.meta.env.VITE_LINK}/auth/login`,
             formData
           );
-          console.log(response);
+    
           const { user, token } = response.data;
-          console.log(user);
-          console.log(token);
+    
           dispatch({
             type: actionType.LOGIN_USER_SUCCESS,
             user: user,
@@ -67,19 +66,20 @@ export default function Login() {
         } catch (err) {
           const responseText = err.response.data;
     
-          console.log(responseText);
+          
           toast.error(responseText.msg);
-          console.log(err);
+     
           setIsLoader(false)
         }
       }
 
       useEffect(()=> {
         if(user) {
+          setIsLoader(true)
           setTimeout(() => {
-            // navigate('/')
-            
             setIsLoader(false)
+            navigate('/')
+            
           },3000)
         }
       },[user])
@@ -89,6 +89,10 @@ export default function Login() {
 
 
   return (
+ <>
+    {isLoader ? (
+      <Spinner />
+    ) : (
     <div className='flex bg-slate-900 w-full h-screen'>
       {/* <div className=" flex w-1/2 h-full object-contain" >
       <img src="https://i.ibb.co/qNnmmpT/a-piece-of-pizza-with-a-3d-cute-smiling-face-stylized-caricature-mortified-at-its-existence-hyper-71.png" alt="a-piece-of-pizza-with-a-3d-cute-smiling-face-stylized-caricature-mortified-at-its-existence-hyper-71" border="0" className='w-full object-cover'/>
@@ -184,6 +188,7 @@ export default function Login() {
 
         </div>
       </div>
-    </div>
+    </div>)}
+ </>
   )
 }
