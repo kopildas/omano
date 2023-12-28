@@ -6,15 +6,15 @@ import axios from "axios";
 import { actionType } from "../../../context/reducer";
 import { toast } from "react-toastify";
 import RowContainer from "../RowContainer/RowContainer";
+import Spinner from "../../Spinner";
+import Data_Lodder from "../Data_Lodder";
 // import { category } from "../admin_comp/Add_popup";
 // import RowContainer from "./RowContainer";
 
 export default function Menu({ flag=true, scrollValue }) {
   const [data, setData] = useState(null);
   const [{ foodItem, cartShow }, dispatch] = useStateValue();
-console.log(foodItem)
   async function fetchingData() {
-    console.log("holo h" + import.meta.env.VITE_LINK);
   
       try {
         // dispatch({
@@ -27,7 +27,6 @@ console.log(foodItem)
           `${import.meta.env.VITE_LINK}/products`
         );
   
-        console.log("respons" + response.data.product);
   
         setData(response.data.product);
   
@@ -41,9 +40,7 @@ console.log(foodItem)
       } catch (err) {
         const responseText = err.response.data;
   
-        console.log(responseText);
         toast.error(responseText.msg);
-        console.log(err);
       }
     
   }
@@ -53,13 +50,8 @@ console.log(foodItem)
 
     fetchingData();
 
-    // fetch('http://localhost:4001/')
-    //   .then(response => response.json())
-    //   .then(data => setData(data))
-    //   .catch(error => console.error('Error:', error));
   }, []);
 
-  console.log(data);
     const category = [
         { value: "Fast Food", label: "https://i.ibb.co/brJpr0D/burg.png" },
         { value: "Biriyani", label: "https://i.ibb.co/6gwBTBX/chicken-biryani-traditional-indian-cuisine-png.webp" },
@@ -109,12 +101,16 @@ console.log(foodItem)
           ))}
       </div>
 
-      <div className="w-full">
+      <div className="w-full -mt-14">
         {data ?
           (<RowContainer
           flag={false}
           data={data?.filter((n) => n.category === filter)}
-        />) : null
+        />) : (<div>
+
+          <Data_Lodder />
+
+        </div>)
         }
       </div>
     </>
