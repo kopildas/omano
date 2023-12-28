@@ -132,13 +132,13 @@ export default function Foods() {
   return (
    <div className="flex flex-col">
    
-   <div className="h-auto overflow-auto no-scrollbar">
+   <div className="h-screen overflow-auto no-scrollbar">
       {cartShow && <CartContainer />}
       <div className="hidden md:flex md:cover_1">
-        <div className="grid h-auto grid-flow-row">
+        <div className="grid h-auto grid-flow-row border w-full pb-5 pt-2">
           <div className="flex flex-col items-start justify-center px-44">
-            <p>Foods</p>
-            <p>
+            <p className="text-2xl font-semibold">Foods</p>
+            <p className="text-xl">
               Home <span className="text-red-500 text">{bar}</span> Foods
             </p>
           </div>
@@ -146,12 +146,13 @@ export default function Foods() {
       </div>
 
       <div className=" h-96">
-        <div className="h-5 mt-12 mb-16 ml-5 md:ml-32 ">
+        <div className="h-5 mt-12 mb-16 ml-5 md:ml-32">
           <div className="flex flex-col md:flex-row">
-            <div className="">
+            <div>
               {/* search bar need control event loop */}
               <form onSubmit={(e) => e.preventDefault()}>
                 <input
+                 className="border-2 px-3 p-1 rounded-md"
                   type="text"
                   name="text"
                   placeholder="Search"
@@ -354,25 +355,7 @@ export default function Foods() {
       </div>
     </div>
 
-<div className='h-auto pl-32 pr-32 pt-32 mt-10 hero-font uppercase text-stone-800'>
-<div className='w-full border-b-2 border-gray-950'></div>
-<div className='w-full flex flex-col items-center justify-center'>
-  <p className='mt-10 w-96'><img src="https://i.ibb.co/TP8bczH/logo-removebg-preview.png" alt="logo-removebg-preview" border="0"/></p>
-  <div className=' flex gap-5 mt-10 mb-10'>
-      <div className='w- h- bg-red- border-b-2 border-b-black'>Home</div>
-      <div className='w- h- bg-red- border-b-2 border-b-black'>Food & Drinks</div>
-      <div className='w- h- bg-red- border-b-2 border-b-black'>About</div>
-      <div className='w- h- bg-red- border-b-2 border-b-black'>Location</div>
-      <div className='w- h- bg-red- border-b-2 border-b-black'>Jobs</div>
-      <div className='w- h- bg-red- border-b-2 border-b-black'>Contact</div>
-  </div><div className=' flex gap-5 mt- mb-5'>
-      <div className='w- h- bg-rd-00 text-3xl'><FaFacebookF/></div>
-      <div className='w- h- bg-rd-00 text-4xl'><FaInstagram/></div>
-      <div className='w- h- bg-rd-00 text-4xl'><FaYoutube/></div>
-      
-  </div>
-</div>
-</div>
+
    
    </div>
   );

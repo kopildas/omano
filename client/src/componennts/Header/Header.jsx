@@ -253,7 +253,8 @@ export default function Header({ children }) {
                   (activeHeader("/sign-in") || activeHeader("/profile") || activeHeader("/admin")) ? "text-red-500 border-t-4 border-t-red-500" : ""
                 }`}
               >
-                <div className="">
+                {user && (
+                  <div className="">
                   <button
                     // onClick={(e) => {
                     //   e.preventDefault();
@@ -267,12 +268,13 @@ export default function Header({ children }) {
                     //   }
                     // }}
                   >
-                   ghg {/* {pagestate} */}
+                   user {/* {pagestate} */}
                   </button>
                   {/* {popups.login && pagestate === "Log in" && (
                     <Login toggle={calllog} />
                   )} */}
                 </div>
+                )}
               </li>
             </ul>
           </div>
