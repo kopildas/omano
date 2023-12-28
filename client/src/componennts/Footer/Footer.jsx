@@ -11,6 +11,8 @@ export default function Footer() {
     "/admin/orders",
     "/admin/review",
     "/foods",
+    "/login",
+    "/sign-up",
   ];
 
   // Check if the current route matches any of the paths to hide the footer
