@@ -29,6 +29,7 @@ import Sign_up from "./pages/Auth/Sign_up";
 import SingleItem from "./pages/Shop/SingleItem";
 import Foods from "./pages/Shop/Foods";
 import CartContainer from "./componennts/Home/Cart/CartContainer";
+import User from "./pages/User/User";
 // import Admin from "./pages/Admin/Admin";
 // import FoodItems from "./pages/Admin/FoodItems";
 // import Reviews from "./pages/Admin/Reviews";
@@ -96,7 +97,7 @@ console.log(foodItem)
     //   .catch(error => console.error('Error:', error));
   }, []);
 
-  console.log(data);
+ 
   
 
 
@@ -114,6 +115,7 @@ console.log(foodItem)
           <Route path="/singlefood/:id" element={<SingleItem />} />
           <Route path="/sign-up" element={<Sign_up />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/user" element={<User />} />
         </Routes>
          <Footer/>
       </Router>

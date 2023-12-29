@@ -249,24 +249,19 @@ export default function Header({ children }) {
                   className={`cursor-pointer py-3 hover:text-red-400 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${
                     activeHeader("/sign-in") ||
                     activeHeader("/profile") ||
-                    activeHeader("/admin")
+                    activeHeader("/user")
                       ? "text-red-500 border-t-4 border-t-red-500"
                       : ""
                   }`}
                 >
                   <div className="">
                     <button
-                    // onClick={(e) => {
-                    //   e.preventDefault();
-                    //   calllog();
-                    //   if (pagestate === "Profile") {
-                    //     // adminOrNot();
-                    //     navigate("/profile");
-                    //   } else if (pagestate === "Admin") {
-                    //     // adminOrNot();
-                    //     navigate("/admin");
-                    //   }
-                    // }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      
+                        navigate("/user");
+                      
+                    }}
                     >
                       user {/* {pagestate} */}
                     </button>

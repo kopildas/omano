@@ -21,6 +21,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: null,
+        token: null,
       };
     case actionType.LOGIN_USER_SUCCESS:
       return {
