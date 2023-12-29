@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { MdShoppingBasket } from "react-icons/md";
-import { useStateValue } from "../../../context/StateProvider";
+// import { useStateValue } from "../../../context/StateProvider";
 import axios from "axios";
 import { actionType } from "../../../context/reducer";
 import { toast } from "react-toastify";
 import RowContainer from "../RowContainer/RowContainer";
 import Spinner from "../../Spinner";
 import Data_Lodder from "../Data_Lodder";
+import { useStateValue } from "../../../context/StateProvider";
 // import { category } from "../admin_comp/Add_popup";
 // import RowContainer from "./RowContainer";
 
@@ -29,7 +30,7 @@ export default function Menu({ flag=true, scrollValue }) {
   
   
         setData(response.data.product);
-  
+  console.log(response.data.product)
         dispatch({
           type: actionType.SET_FOOD_ITEMS,
           foodItem: response.data.product,

@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div className='w-full flex flex-col lg:flex-row'>
       <div className='lg:w-2/5 lg:h-screen z-10 mt-[10rem] lg:mt-0 flex items-center justify-center'>
-        <div className=' lg:ml-14'>
+        <div className='ml-10 lg:ml-14'>
         <p className='hero-font-2 text-7xl uppercase'>Better way</p>
         <p className='hero-font text-5xl text-stone-600 uppercase'>of eating</p>
         <button className='bg-blob-color4 p-2 mt-20 rounded-2xl pl-6 pr-6 text-white hero-font-2 font-semibold'>Our Foods & Drinks</button>
