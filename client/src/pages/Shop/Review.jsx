@@ -41,7 +41,7 @@ console.log(reviews);
   return (
     <div>
       <div>
-        {reviews.length>0 ?
+        {reviews && reviews.length>0 ?
           reviews.map((item) => (
             <div key={item._id} className="gap-2 p-2 w-full bg-red-00" >
               <div className="flex flex-row gap-2 bg-gray-20 px-2 py-1">

@@ -69,7 +69,7 @@ export default function SingleItem() {
             <div className='bg-gray-100 rounded-md m-3 -mt-5 overflow-y-auto h-[12rem]'>
             <Review item_id={singleData?._id} newReview={newReview} />
             </div>
-            <AddReview id={singleData?._id} newRev={newRev} />
+            <AddReview id={singleData?._id} newRev={newRev} newReview={newReview} />
         </div>
       </div>
     </div>
