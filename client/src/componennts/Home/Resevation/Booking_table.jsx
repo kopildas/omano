@@ -96,7 +96,7 @@ if (selectDate.justdate != null && databaseReserv.length>0) {
             table: tableId,
             tableName: tableName,
             guest: selectedGuest,
-            userid: user.id,
+            userid: user?._id || user?.id,
             user_name: user.name,
             userEmail: user.email,
           }));
@@ -106,7 +106,8 @@ if (selectDate.justdate != null && databaseReserv.length>0) {
       };
 const {date , time , table , tableName ,guest ,userid ,user_name , userEmail} = resvData
 
-      
+      console.log(resvData)
+      console.log(user)
 
 
 
@@ -117,7 +118,7 @@ const {date , time , table , tableName ,guest ,userid ,user_name , userEmail} = 
         }
         else if(!date || !time || !table || !tableName || !guest || !userid || !user_name || !userEmail)
         {
-            toast.error("please provide all value")
+            toast.error("please provide all value first")
             onClose();
         }
         else {
@@ -133,7 +134,7 @@ const {date , time , table , tableName ,guest ,userid ,user_name , userEmail} = 
             //   type: actionType.UPDATE_PRODUCTS,
             //   updateProd: true,
             // });
-            toast.success("New Product Added.");
+            toast.success(tableName+" Booked succesfully.");
             onClose();
             // setFormData((prevState) => ({
             //   ...prevState,
