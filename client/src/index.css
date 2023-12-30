@@ -192,4 +192,25 @@ html,body {
 
 
 
-/* css for testimonials */
+/* css for related products slider */
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+
+/* Customize prev arrow */
+.slick-next::before {
+  content: '\2192'; /* Unicode character for right arrow */
+  color: #e76346;
+  font-size: 34px;
+  opacity: 50%;
+}
+
+/* Customize prev arrow icon */
+.slick-prev::before {
+  content: '\2190'; /* Unicode character for left arrow */
+  color: #e76346;
+  font-size: 34px;
+  opacity: 50%;
+
+}
