@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useStateValue } from '../../context/StateProvider';
 import { useParams } from 'react-router';
 import Add_To_Cart from '../../componennts/Home/Cart/Add_To_Cart';
+import Review from './Review';
+import AddReview from './AddReview';
+import Related_Item from './Related_Item';
+
+
+
+
 
 export default function SingleItem() {
     const [{foodItem, cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -21,11 +28,15 @@ export default function SingleItem() {
         }
       }, [foodItem]);
   
-  
+      const [newReview, setNewReview] = useState(true);
+      const newRev = ()=> {
+        setNewReview(!newReview);
+      }
     return (
-    <div className='flex w-full'>
-      <div className='w-1/3 h-screen bg-slate-00 flex items-start justify-start pl-10'>
-        <img src={singleData?.images} alt="" className='mt-20 rounded-xl' />
+    <div>
+      <div className='flex w-full'>
+      <div className='w-1/3 h-screen bg-slate-00 flex items-center justify-center pl-10'>
+        <img src={singleData?.images} alt="" className='-mt-24 rounded-xl h-96' />
       </div>
       <div className='w-1/3 h-screen bg-slate-00 flex flex-col hero-font-2 pl-5 pr-5'>
         <p className='hero-font-2 text-5xl font-bold text-stone-800 mt-20 '>{singleData?.item_name}</p>
@@ -49,15 +60,23 @@ export default function SingleItem() {
               </div>
             </div>
       </div>
-      <div className='w-1/3 h-screen bg-slate-00 flex justify-center'>
-        <div className='w-96 h-96 rounded-lg bg-slate-200 mt-20 flex flex-col hero-font-2'>
+      <div className='w-1/3 h-auto bg-slate-00 flex justify-center'>
+        <div className='w-96 h-auto rounded-lg bg-slate-10 backdrop-blur-sm mt-20 flex flex-col  justify-between hero-font-2 border'>
             <div className='flex items-start justify-between p-5'>
-                <p className='text-sm text-stone-400'>Information</p>
-                <p className=' text-stone-600'>Overview</p>
+                <p className='text-lg text-stone-400'>Review</p>
+                <p className='text-sm text-stone-600'>Overview</p>
             </div>
-            
+            <div className='bg-gray-100 rounded-md m-3 -mt-5 overflow-y-auto h-[12rem]'>
+            <Review item_id={singleData?._id} newReview={newReview} />
+            </div>
+            <AddReview id={singleData?._id} newRev={newRev} />
         </div>
       </div>
+    </div>
+    <div className='w-full h-screen bg-red-00 flex flex-col items-center justify-center'>
+      <p className='mt-40 bg-red-00 w-full px-20 text-4xl font-semibold text-gray-800'>Related Foods</p>
+      <Related_Item category={singleData?.category} />
+    </div>
     </div>
   )
 }
