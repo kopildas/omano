@@ -208,8 +208,8 @@ const getReview = async (req, res) => {
       throw new BadReqError("Invalid product ID");
     }
 
-    const reviews = await ReviewDB.find({ item_id: itemId }).toArray();
-
+    let reviews = await ReviewDB.find({ item_id: itemId }).toArray();
+    reviews = reviews.reverse();
     console.log(reviews);
 
     res.status(StatusCodes.OK).json({ reviews: reviews });
