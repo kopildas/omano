@@ -3,6 +3,7 @@ import { useStateValue } from '../../context/StateProvider';
 import ReactStar from 'react-rating-stars-component';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 export default function AddReview({ id, newRev, newReview }) {
   const [{ foodItem, cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -15,6 +16,7 @@ export default function AddReview({ id, newRev, newReview }) {
     review: '',
     date: 0,
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
@@ -74,7 +76,7 @@ export default function AddReview({ id, newRev, newReview }) {
   }
 
   return (
-    <div className={`${user ? 'flex' : 'hidden'} flex-col gap-1 p-5 bg-red-00 h-auto `}>
+    <div className={`${user ? 'flex' : 'flex'} flex-col gap-1 p-5 bg-red-00 h-auto `}>
       <p className="font-bold text-lg text-gray-800">Leave a Review</p>
       <ReactStar size={25} onChange={ratingChanged} />
       <form className="flex flex-col gap-2" onSubmit={onSubmitReview}>
@@ -89,12 +91,22 @@ export default function AddReview({ id, newRev, newReview }) {
         </div>
 
         <div className="flex flex-row gap-5">
-          <button
+          {user ? (
+            <button
             type="submit"
             className="bg-blob-color4 text-sm rounded-md p-2 font-semibold hover:bg-gray-700 hover:text-blob-color4 transition duration-200 ease-in-out text-gray-800"
           >
             Submit
           </button>
+          ) : (
+            <button
+            
+            className="bg-blob-color5 text-sm rounded-md p-2 font-semibold hover:bg-gray-700 hover:text-blob-color5 transition duration-200 ease-in-out text-gray-800"
+            onClick={() => navigate(`/login`)}
+          >
+            Login first
+          </button>
+          )}
         </div>
       </form>
     </div>
