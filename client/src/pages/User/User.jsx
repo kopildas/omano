@@ -28,7 +28,6 @@ export default function User() {
   // email: 'alita@gmail.com',
   // location: '',
   // phone: '01700000000',
-  console.log(save);
   function onChange(e) {
     setSave(true);
     setFormData((prevState) => ({
@@ -36,18 +35,15 @@ export default function User() {
       [e.target.id]: e.target.value,
     }));
   }
-  console.log(user);
 
   async function handleEditUserData(e) {
     e.preventDefault();
-    console.log(formData);
     let id;
     if (user.id) {
       id = user.id;
     } else if (user._id) {
       id = user._id;
     }
-    console.log(id);
     const phoneRegex = /^[0-9]+$/;
     const isPhoneNumberValid = phoneRegex.test(formData.phone);
 
@@ -75,12 +71,9 @@ export default function User() {
           `${import.meta.env.VITE_LINK}/auth/${id}`,
           formData
         );
-        console.log(response);
         toast.success("User Updated succesfully..!");
         // onClose()
         // const { user } = response.data;
-        console.log(response.data.user);
-        // console.log(token);
         dispatch({
           type: actionType.REGISTER_USER_UPDATE,
           user: response.data.user,
@@ -91,18 +84,17 @@ export default function User() {
       } catch (err) {
         const responseText = err.response.data;
 
-        console.log(responseText);
         toast.error(responseText.msg);
-        console.log(err);
       }
     }
   }
 
   const onLogOut = () => {
-    localStorage.removeItem(user);
+    localStorage.removeItem("user");
     dispatch({
               type: actionType.DEL_USER,
             });
+
     navigate("/");
   };
 
