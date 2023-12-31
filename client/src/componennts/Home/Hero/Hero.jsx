@@ -10,7 +10,7 @@ export default function Hero() {
         <div className='ml-10 lg:ml-14'>
         <p className='hero-font-2 text-7xl uppercase'>Better way</p>
         <p className='hero-font text-5xl text-stone-600 uppercase'>of eating</p>
-        <button className='bg-blob-color4 p-2 mt-20 rounded-2xl pl-6 pr-6 text-white hero-font-2 font-semibold' onClick={() => navigate(`/foods`)}>Our Foods & Drinks</button>
+        <button className='bg-blob-color4 hover:bg-gray-700 hover:text-blob-color4 transition duration-200 ease-in-out p-2 mt-20 rounded-2xl pl-6 pr-6 text-white hero-font-2 font-semibold' onClick={() => navigate(`/foods`)}>Our Foods & Drinks</button>
         </div>
       </div>
       <div className='lg:w-3/5 -mt-80 lg:mt-0 z-0  h-screen overflow-hidden'>
