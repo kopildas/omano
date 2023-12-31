@@ -1,14 +1,16 @@
 import React from 'react'
 import Icon_Magnetic from './Icon_Magnetic'
+import { useNavigate } from 'react-router'
 
 export default function Hero() {
+  const navigate= useNavigate()
   return (
     <div className='w-full flex flex-col lg:flex-row'>
       <div className='lg:w-2/5 lg:h-screen z-10 mt-[10rem] lg:mt-0 flex items-center justify-center'>
         <div className='ml-10 lg:ml-14'>
         <p className='hero-font-2 text-7xl uppercase'>Better way</p>
         <p className='hero-font text-5xl text-stone-600 uppercase'>of eating</p>
-        <button className='bg-blob-color4 p-2 mt-20 rounded-2xl pl-6 pr-6 text-white hero-font-2 font-semibold'>Our Foods & Drinks</button>
+        <button className='bg-blob-color4 p-2 mt-20 rounded-2xl pl-6 pr-6 text-white hero-font-2 font-semibold' onClick={() => navigate(`/foods`)}>Our Foods & Drinks</button>
         </div>
       </div>
       <div className='lg:w-3/5 -mt-80 lg:mt-0 z-0  h-screen overflow-hidden'>
