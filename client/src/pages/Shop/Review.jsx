@@ -8,34 +8,30 @@ import { toast } from "react-toastify";
 
 export default function Review({ item_id,newReview }) {
   const [reviews, setReviews] = useState(null);
-console.log(item_id)
   async function fetch_review () {
-    try {
+    if(item_id){
+      try {
         const response = await axios.get(
           `${import.meta.env.VITE_LINK}/products/createreview/${item_id}`
         );
-        console.log(response);
         const fetchedReviews = response.data.reviews;
         setReviews(fetchedReviews);
        
       } catch (err) {
         const responseText = err.response.data;
   
-        console.log(responseText);
         toast.error(responseText.msg);
-        console.log(err);
       }
+    }
 }
 
 
   useEffect(() => {
-
     fetch_review()
 
   }, [item_id,newReview]);
   
 
-console.log(reviews);
 
 
   return (
