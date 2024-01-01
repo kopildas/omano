@@ -21,8 +21,6 @@ export default function SingleItem() {
         {
             const foundItem = foodItem.find((item) => item.id === id);
         //   selectedFoodRef.current = foundItem;
-        console.log(foodItem)
-        console.log(foundItem);
         setDisplayIamge(foundItem.images)
         setSingleData(foundItem);
         }
@@ -34,11 +32,11 @@ export default function SingleItem() {
       }
     return (
     <div>
-      <div className='flex w-full'>
-      <div className='w-1/3 h-screen bg-slate-00 flex items-center justify-center pl-10'>
-        <img src={singleData?.images} alt="" className='-mt-24 rounded-xl h-96' />
+      <div className='flex flex-col md:flex-row w-full'>
+      <div className='md:w-1/3 md:h-screen bg-slate-00 flex items-center justify-center md:pl-10'>
+        <img src={singleData?.images} alt="" className='md:-mt-24 mt-10 rounded-xl h-96' />
       </div>
-      <div className='w-1/3 h-screen bg-slate-00 flex flex-col hero-font-2 pl-5 pr-5'>
+      <div className='md:w-1/3  md:h-screen bg-slate-00 flex flex-col hero-font-2 pl-5 pr-5'>
         <p className='hero-font-2 text-5xl font-bold text-stone-800 mt-20 '>{singleData?.item_name}</p>
         <p className='text-stone-800 text-xl'>Category : {singleData?.category}</p>
         <p className='text-stone-600 mt-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquid architecto voluptate ad aliquam laboriosam debitis ratione, dolorem ut deserunt at magni</p>
@@ -60,7 +58,7 @@ export default function SingleItem() {
               </div>
             </div>
       </div>
-      <div className='w-1/3 h-auto bg-slate-00 flex justify-center'>
+      <div className='md:w-1/3 bg-red-00 h-auto bg-slate-00 flex justify-center'>
         <div className='w-96 h-auto rounded-lg bg-slate-10 backdrop-blur-sm mt-20 flex flex-col  justify-between hero-font-2 border'>
             <div className='flex items-start justify-between p-5'>
                 <p className='text-lg text-stone-400'>Review</p>
