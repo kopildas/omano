@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { MdShoppingBasket } from "react-icons/md";
+import { MdShoppingBasket,MdOutlineLogin,MdOutlineFastfood } from "react-icons/md";
+import { VscSignIn } from "react-icons/vsc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useStateValue } from "../../context/StateProvider";
 // import { actionType } from "../context/reducer";
@@ -9,7 +10,7 @@ import {
   FaBars,
   FaCommentAlt,
   FaRegChartBar,
-  FaTh,
+  FaHome,
   FaThList,
   FaUserAlt,
 } from "react-icons/fa";
@@ -113,35 +114,20 @@ export default function Header({ children }) {
   //   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
     {
-      path: "/admin",
-      name: "Dashboard",
-      icon: <FaTh />,
-    },
-    {
-      path: "/admin/users",
-      name: "Users",
-      icon: <FaUserAlt />,
-    },
-    {
-      path: "/admin/wallet",
-      name: "Wallet",
-      icon: <FaRegChartBar />,
-    },
-    {
-      path: "/admin/review",
-      name: "Review",
-      icon: <FaCommentAlt />,
-    },
-    {
-      path: "/admin/fooditems",
-      name: "Food Items",
-      icon: <FaThList />,
-    },
-    {
       path: "/",
-      name: "Logout",
-      icon: <BiLogOut />,
+      name: "Home",
+      icon: <FaHome />,
     },
+    {
+      path: "/foods",
+      name: "Foods",
+      icon: <MdOutlineFastfood />,
+    },
+    {
+      path: "/about",
+      name: "About",
+      icon: <FaRegChartBar />,
+    }
   ];
 
   function cartShowing() {
@@ -292,7 +278,7 @@ export default function Header({ children }) {
           />
           <div
             className="relative flex items-center justify-center gap-9"
-            // onClick={cartShowing}
+            onClick={cartShowing}
           >
             <MdShoppingBasket className="md:text-2xl text-4xl text-gray-500 cursor-pointer" />
             {cartItems && cartItems.length > 0 && (
@@ -306,32 +292,83 @@ export default function Header({ children }) {
         </div>
 
         {isOpen && (
-          <div className="md:hidden w-screen bg-black text-white">
+          <div className="md:hidden w-screen bg-zinc-800 text-white z-50">
             <ul className="text-center">
               {menuItem.map((item) => (
                 <li
                   key={item.path}
-                  className={`cursor-pointer py-3 text-sm font-semibold border-b `}
+                  className={`cursor-pointer py-3 text-sm font-semibold border-b ${
+                    activeHeader(item.path)
+                      ? "text-red-400"
+                      : ""
+                  } `}
                   onClick={() => {
                     navigate(item.path);
                     setIsOpen(false);
                   }}
                 >
-                  {item.icon} {item.name}
+                  <p className="w-auto flex items-center justify-center gap-4">
+                    <p>{item.icon}</p>
+                    <p>{item.name}</p>
+                  </p>
                 </li>
               ))}
-              <li
+              {!user ? (
+               <>
+                <li
+                
                 className={`cursor-pointer py-3 text-sm font-semibold border-b ${
-                  (pathMatchRoute("/sign-in") || pathMatchRoute("/profile")) &&
-                  "text-red-500"
-                }`}
+                  activeHeader("/sign-up")
+                    ? "text-red-400"
+                    : ""
+                } `}
                 onClick={() => {
-                  togglePopup("login");
+                  navigate("/sign-up");
                   setIsOpen(false);
                 }}
               >
-                {pagestate}
+                <p className="w-auto flex items-center justify-center gap-4">
+                  <p><VscSignIn/></p>
+                  <p>Sign up</p>
+                </p>
               </li>
+                <li
+                
+                className={`cursor-pointer py-3 text-sm font-semibold border-b ${
+                  activeHeader("/login")
+                    ? "text-red-400"
+                    : ""
+                }`}
+                onClick={() => {
+                  navigate("/login");
+                  setIsOpen(false);
+                }}
+              >
+                <p className="w-auto flex items-center justify-center gap-4">
+                  <p><MdOutlineLogin/></p>
+                  <p>Login</p>
+                </p>
+              </li>
+               </>
+              ) : (
+                <li
+                
+                className={`cursor-pointer py-3 text-sm font-semibold border-b ${
+                  activeHeader("/user")
+                    ? "text-red-400"
+                    : ""
+                }`}
+                onClick={() => {
+                  navigate("/user");
+                  setIsOpen(false);
+                }}
+              >
+                <p className="w-auto flex items-center justify-center gap-4">
+                  <p><FaUserAlt /></p>
+                  <p>User</p>
+                </p>
+              </li>
+              )}
             </ul>
           </div>
         )}
