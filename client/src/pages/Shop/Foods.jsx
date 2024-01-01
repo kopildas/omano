@@ -173,14 +173,14 @@ export default function Foods() {
                   </button> */}
                 </form>
               </div>
-              <div className="flex items-center flex-col md:flex-row md:gap-72 justify-between">
+              <div className="flex md:items-center flex-col md:flex-row md:gap-72 md:justify-between bg-red-00 -mt-3 mb-5 md:mb-0">
                 <div className="  w-72">
-                  <p className="md:ml-20 ml-3 mt-2 text-lg font-semibold items-center justify-center">
+                  <p className="md:ml-20  mt-5 md:mt-2 text-lg font-semibold md:items-center md:justify-center ">
                     Showing {length} of {length} results
                   </p>
                 </div>
                 <div className="md:ml-20">
-                  <div className="ml-3 flex justify-between items-center gap-5 md:gap-2 md:justify-end">
+                  <div className="ml-0 md:ml-3 px-2 flex justify-between items-center gap-5 md:gap-2 md:justify-end">
                     {/* Left Div */}
                     <div>
                       <form className="" action="#">
