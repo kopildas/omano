@@ -282,9 +282,9 @@ export default function Header({ children }) {
             className="text-3xl text-gray-500 cursor-pointer"
           />
           <img
-            src="./logo.png"
+            src="https://i.ibb.co/TP8bczH/logo-removebg-preview.png"
             alt="logo"
-            className="h-16 cursor-pointer"
+            className="h-16 cursor-pointer mr-1"
             onClick={() => {
               navigate("/");
               //   adminOrNot();
