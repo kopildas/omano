@@ -163,7 +163,7 @@ export default function Related_Item({category}) {
       ]
       };
   return (
-    <div className=' items-center justify-center w-3/4 h-screen'>
+    <div className=' items-center justify-center w-3/4 md:h-screen'>
        <Slider {...settings}>
           {data &&
           data.map((item) => (

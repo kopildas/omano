@@ -71,7 +71,7 @@ export default function SingleItem() {
         </div>
       </div>
     </div>
-    <div className='w-full h-screen bg-red-00 flex flex-col items-center justify-center'>
+    <div className='w-full md:h-screen bg-red-00 flex flex-col items-center justify-center'>
       <p className='mt-40 bg-red-00 w-full px-20 text-4xl font-semibold text-gray-800'>Related Foods</p>
       <Related_Item category={singleData?.category} />
     </div>
