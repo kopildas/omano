@@ -42,7 +42,7 @@ Clone the repo and install the dependencies.
 <br/>
 
 ```bash
-git https://github.com/kopildas/omano.git
+git clone https://github.com/kopildas/omano.git
 ```
 ```bash
 cd omano
